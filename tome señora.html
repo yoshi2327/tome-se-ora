@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Tome, Señora, Tome!</title>
+    <!-- Incluye Tailwind CSS para un diseño moderno y responsive -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Incluye la fuente 'Inter' de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Define la fuente Inter como la principal para todo el cuerpo */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Contenedor principal de la tarjeta -->
+    <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl text-center max-w-lg w-full transform transition-all duration-500 hover:scale-105">
+        
+        <!-- Título principal -->
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+            ¡Tome, Señora, Tome!
+        </h1>
+
+        <!-- Imagen del meme. Usamos una URL de placeholder con un estilo divertido -->
+        <img id="meme-image" src="https://placehold.co/400x300/e0e0e0/333333?text=TOME+SEÑORA" alt="Meme 'Tome, señora, tome'" class="w-full h-auto rounded-xl shadow-lg mb-8 transition-all duration-500 hover:rotate-2">
+        
+        <!-- Mensaje divertido para tu amiga -->
+        <p id="meme-message" class="text-xl md:text-2xl text-gray-600 mb-8 font-medium">
+            ¡Para mi amiga, con todo mi cariño y el mejor de los memes!
+        </p>
+
+        <!-- Botón para interactuar con la página -->
+        <button id="take-button" class="bg-purple-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-purple-700 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all duration-300 transform hover:-translate-y-1">
+            ¡Tómalo!
+        </button>
+
+    </div>
+
+    <script>
+        // Array de mensajes divertidos para mostrar
+        const messages = [
+            "¡Para que se ría un rato!",
+            "¡Tome señora, este meme es para usted!",
+            "¡Un poquito de alegría para alegrar el día!",
+            "¡Para mi amiga, siempre fuerte y con buena energía!",
+            "¡Este meme es como un abrazo virtual!"
+        ];
+
+        // Obtiene los elementos de la página por su ID
+        const takeButton = document.getElementById('take-button');
+        const memeMessage = document.getElementById('meme-message');
+
+        // Inicializa el índice del mensaje actual
+        let currentMessageIndex = 0;
+
+        // Añade un 'event listener' al botón para detectar clics
+        takeButton.addEventListener('click', () => {
+            // Incrementa el índice para pasar al siguiente mensaje
+            currentMessageIndex = (currentMessageIndex + 1) % messages.length;
+            // Cambia el texto del mensaje con el nuevo mensaje del array
+            memeMessage.textContent = messages[currentMessageIndex];
+        });
+    </script>
+</body>
+</html>
